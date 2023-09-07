@@ -1,0 +1,11 @@
+{
+    "name": "nl.llinc.three-sixty-vr",
+    "displayName": "Three sixty VR",
+    "description": "Cross platform framework for 360 VR apps in Unity.",
+    "version": "0.0.1",
+    "author": {
+      "name" : "Raashid Khan",
+      "email" : "khanra1@vuw.leidenuniv.nl",
+      "url" : "https://github.com/raashid-khan"
+    }
+  }
