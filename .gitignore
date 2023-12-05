@@ -10,6 +10,7 @@
 /[Bb]uilds/
 /[Uu]nityGenerated/
 /[Ll]ocal[Cc]ache/
+/Assets
 
 # Exclude rider idea data
 .idea
@@ -36,6 +37,7 @@
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
+Oculus.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
