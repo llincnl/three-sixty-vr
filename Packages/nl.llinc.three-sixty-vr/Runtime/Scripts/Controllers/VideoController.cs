@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Video;
 
 namespace Viewer360 {
-    public class VideoController : MonoBehaviour, IVRComponent {
+    public class VideoController : MonoBehaviour, IVRController {
 
         [SerializeField] private VideoPlayer _videoPlayer;
         [SerializeField] private AudioSource _audioSource;
@@ -18,12 +18,23 @@ namespace Viewer360 {
         private float _rotation;
 
         void Awake() {
-            ExecuteOperation();
+            Initialize();
         }
         
-        public void ExecuteOperation() {
+        public void Initialize() {
             _videoPlayer.prepareCompleted += OnComplete;
+            Debug.Log("Video Controller initialized");
         }
+
+        public void UpdateController(VideoClip videoClip, AudioClip audioClip, bool loadSceneOnFinish, string scene, float delay, float rotation) {
+            SetVideoClip(videoClip);
+            SetAudioClip(audioClip);
+            SetAudioDelay(delay);
+            SetRotation(rotation); 
+            SetLoadSceneOnVideoFinish(loadSceneOnFinish);
+            SetScene(scene);
+        }
+
         private void OnComplete(VideoPlayer videoPlayer) {
             _videoPlayer.Play();
     
@@ -74,6 +85,7 @@ namespace Viewer360 {
             _rotation = rotation;
             _material.SetFloat("_Rotation", _rotation);
         }
-        
+
+
     }
 }
