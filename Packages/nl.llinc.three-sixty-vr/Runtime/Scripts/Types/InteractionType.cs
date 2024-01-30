@@ -1,5 +1,5 @@
 ﻿namespace Viewer360 {
-    public enum InteractorType {
+    public enum InteractionType {
         None,
         RayInteraction,
         GazeInteraction

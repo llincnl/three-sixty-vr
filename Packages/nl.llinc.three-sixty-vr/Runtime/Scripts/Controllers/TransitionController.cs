@@ -10,6 +10,8 @@ namespace Viewer360 {
         /*[SerializeField] private GazeInteractor _gazeInteractor;*/
         [SerializeField] private Image _transitionImage;
 
+        private InteractionType _interactionType;
+        
         private float _duration;
         private Color _color;
         
@@ -41,7 +43,10 @@ namespace Viewer360 {
         }
 
         private void TransitionToScene(string sceneName) {
-            /*_gazeInteractor.Disable();*/
+            if (_interactionType == InteractionType.GazeInteraction) {
+                /*_gazeInteractor.Disable();*/
+            }
+
             _transitionImage.DOFade(1, _duration).OnComplete(() => {
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             });
@@ -53,7 +58,7 @@ namespace Viewer360 {
 
         public void SetColor(Color color) {
             _color = color;
-            _transitionImage.color = _color;
+            if (_transitionImage != null) _transitionImage.color = _color;
         }
     }   
 }

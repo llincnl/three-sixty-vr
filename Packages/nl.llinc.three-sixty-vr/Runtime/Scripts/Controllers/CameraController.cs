@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 namespace Viewer360 {
     public class CameraController : MonoBehaviour, IVRController {
 
+        #region Fields
         [SerializeField] private Camera _camera;
         [SerializeField] private GameObject _cameraOffset;
         [SerializeField] private Skybox _skybox;
@@ -14,6 +15,9 @@ namespace Viewer360 {
     
         private float _fieldOfView;
         private Color _backgroundColor;
+        #endregion
+
+
 
         public void Initialize() {
             _camera = FindObjectOfType<Camera>();
@@ -22,7 +26,8 @@ namespace Viewer360 {
             Debug.Log("Camera Initialized");
         }
 
-        public void UpdateController(float _cameraFieldOfView, Color _cameraBackgroundColor) {
+        public void UpdateController(ViewerType _viewerType, float _cameraFieldOfView, Color _cameraBackgroundColor) {
+            SetViewerType(_viewerType);
             SetFieldOfView(_cameraFieldOfView);
             SetBackgroundColor(_cameraBackgroundColor);
             Rotate();
